@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section class="zoom">
+        <img src="./img/mountain1.png" alt="mountain1" id="layer1">
+        <img src="./img/mountain2.png" alt="mountain1" id="layer2">
+        <img src="./img/text.png" alt="text" id="text">
+    </section>
+    <section class="content">
+        <h2>Background Parallax</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Laudantium eligendi reprehenderit officiis, 
+            dolores magnam dolor iste quam mollitia et, 
+            soluta exercitationem totam eaque dicta ducimus error 
+            ut odio, asperiores at?</p>
+
+    </section>
+    <script type="text/javascript">
+    var layer1 = document.getElementById('layer1')
+    scroll = window.pageYOffset;
+    document.addEventListener('scroll',
+    function (e){
+        var offset = window.pageYOffset;
+        scroll = offset;
+        layer1.style.width = (100 + scroll) + '%';
+    });
+
+    var layer2 = document.getElementById('layer2')
+    scroll = window.pageYOffset;
+    document.addEventListener('scroll',
+    function (e){
+        var offset = window.pageYOffset;
+        scroll = offset;
+        layer2.style.width = (100 + scroll/5) + '%';
+        layer2.style.left = scroll/50 + '%';
+    });
+
+    var text = document.getElementById('text')
+    scroll = window.pageYOffset;
+    document.addEventListener('scroll',
+    function (e){
+        var offset = window.pageYOffset;
+        scroll = offset;
+        layer2.style.width = (100 + scroll/5) + '%';
+        text.style.top = - scroll/20 + '%';
+    });
+    </script>
+</body>
+</html>
